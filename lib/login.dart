@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:progres/Home.dart';
 
 class LoginL extends StatelessWidget {
   const LoginL({super.key});
@@ -25,7 +25,6 @@ class LoginF extends StatefulWidget {
 }
 
 class LoginS extends State<LoginF> {
-  String x = '';
   GlobalKey<FormState> form = GlobalKey();
   TextEditingController controller = TextEditingController();
 
@@ -67,10 +66,6 @@ class LoginS extends State<LoginF> {
                     TextFormField(
                       controller: controller,
                       validator: (val) {
-                        setState(() {
-                          x = val!;
-                        });
-
                         if (val!.length > 3) {
                           return "Valid";
                         } else {
@@ -81,8 +76,6 @@ class LoginS extends State<LoginF> {
                       decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          errorStyle: TextStyle(
-                              color: x.length > 3 ? Colors.green : Colors.red),
                           label: const Row(
                             children: [
                               Icon(Icons.account_circle),
@@ -119,6 +112,11 @@ class LoginS extends State<LoginF> {
                     OutlinedButton(
                       onPressed: () {
                         form.currentState!.validate();
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context){
+                          return const Home();
+                        })
+                      );
                       },
                       style: ButtonStyle(
                           backgroundColor:
