@@ -90,9 +90,7 @@ class LoginS extends State<LoginF> {
                             ],
                           ),
                           border: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1,
-                              ),
+                              borderSide:  BorderSide.none,
                               borderRadius: BorderRadius.circular(30))),
                     ),
                     const SizedBox(
@@ -104,6 +102,7 @@ class LoginS extends State<LoginF> {
                       decoration: InputDecoration(
                         filled: true,
                           fillColor: Colors.white,
+
                           label: const Row(
                             children: [
                               Icon(Icons.key),
@@ -111,7 +110,7 @@ class LoginS extends State<LoginF> {
                             ],
                           ),
                           border: OutlineInputBorder(
-                              borderSide: const BorderSide(width: 1),
+                              borderSide:  BorderSide.none,
                               borderRadius: BorderRadius.circular(30))),
                     ),
                     const SizedBox(
