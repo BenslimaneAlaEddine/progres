@@ -25,9 +25,10 @@ class LoginF extends StatefulWidget {
 }
 
 class LoginS extends State<LoginF> {
-  String x='';
-  GlobalKey<FormState> form =GlobalKey();
-  TextEditingController controller =TextEditingController();
+  String x = '';
+  GlobalKey<FormState> form = GlobalKey();
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +36,9 @@ class LoginS extends State<LoginF> {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
-            top: widget.size.width<widget.size.height ? widget.size.width * 0.4 : widget.size.height * 0.1,
+            top: widget.size.width < widget.size.height
+                ? widget.size.width * 0.4
+                : widget.size.height * 0.1,
             left: widget.size.width / 2 - (widget.size.width * 0.7 / 2),
             right: widget.size.width / 2 - (widget.size.width * 0.7 / 2),
           ),
@@ -63,21 +66,23 @@ class LoginS extends State<LoginF> {
                   children: [
                     TextFormField(
                       controller: controller,
-                      validator: (val){
+                      validator: (val) {
                         setState(() {
-                          x=val!;
-
+                          x = val!;
                         });
 
-                      if(val!.length > 3) {
-                        return "Valid";
-                      } else {
-                        return "Invalid";
-                      }
-                    },
+                        if (val!.length > 3) {
+                          return "Valid";
+                        } else {
+                          return "Invalid";
+                        }
+                      },
                       style: const TextStyle(height: 1),
                       decoration: InputDecoration(
-                        errorStyle: TextStyle(color:x!.length > 3 ? Colors.green : Colors.red),
+                          filled: true,
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                              color: x.length > 3 ? Colors.green : Colors.red),
                           label: const Row(
                             children: [
                               Icon(Icons.account_circle),
@@ -85,17 +90,25 @@ class LoginS extends State<LoginF> {
                             ],
                           ),
                           border: OutlineInputBorder(
-                              borderSide: const BorderSide(width: 1),
+                              borderSide: const BorderSide(
+                                width: 1,
+                              ),
                               borderRadius: BorderRadius.circular(30))),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(obscureText:true ,
+                    TextFormField(
+                      obscureText: true,
                       style: const TextStyle(height: 1),
                       decoration: InputDecoration(
+                        filled: true,
+                          fillColor: Colors.white,
                           label: const Row(
-                            children: [Icon(Icons.key), Text("ادخل كلمة المرور")],
+                            children: [
+                              Icon(Icons.key),
+                              Text("ادخل كلمة المرور")
+                            ],
                           ),
                           border: OutlineInputBorder(
                               borderSide: const BorderSide(width: 1),
