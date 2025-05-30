@@ -25,6 +25,9 @@ class LoginF extends StatefulWidget {
 }
 
 class LoginS extends State<LoginF> {
+  String x='';
+  GlobalKey<FormState> form =GlobalKey();
+  TextEditingController controller =TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +35,7 @@ class LoginS extends State<LoginF> {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
-            top: widget.size.width * 0.4,
+            top: widget.size.width<widget.size.height ? widget.size.width * 0.4 : widget.size.height * 0.1,
             left: widget.size.width / 2 - (widget.size.width * 0.7 / 2),
             right: widget.size.width / 2 - (widget.size.width * 0.7 / 2),
           ),
@@ -51,47 +54,60 @@ class LoginS extends State<LoginF> {
               ),
               const Text("Progiciel de Gestion Intégré"),
               const Text("بوابة الطالب"),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Form(
+                key: form,
                 child: Column(
                   children: [
-                    TextField(
-                      style: TextStyle(height: 1),
+                    TextFormField(
+                      controller: controller,
+                      validator: (val){
+                        setState(() {
+                          x=val!;
+
+                        });
+
+                      if(val!.length > 3) {
+                        return "Valid";
+                      } else {
+                        return "Invalid";
+                      }
+                    },
+                      style: const TextStyle(height: 1),
                       decoration: InputDecoration(
-                          label: Row(
+                        errorStyle: TextStyle(color:x!.length > 3 ? Colors.green : Colors.red),
+                          label: const Row(
                             children: [
                               Icon(Icons.account_circle),
                               Text("ادخل رقم التسجيل")
                             ],
                           ),
                           border: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1),
+                              borderSide: const BorderSide(width: 1),
                               borderRadius: BorderRadius.circular(30))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    TextField(
-                      style: TextStyle(height: 1),
+                    TextFormField(obscureText:true ,
+                      style: const TextStyle(height: 1),
                       decoration: InputDecoration(
-                          label: Row(
+                          label: const Row(
                             children: [Icon(Icons.key), Text("ادخل كلمة المرور")],
                           ),
                           border: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1),
+                              borderSide: const BorderSide(width: 1),
                               borderRadius: BorderRadius.circular(30))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     OutlinedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "تسجيل الدخول",
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      onPressed: () {
+                        form.currentState!.validate();
+                      },
                       style: ButtonStyle(
                           backgroundColor:
                               const WidgetStatePropertyAll(Colors.green),
@@ -103,18 +119,22 @@ class LoginS extends State<LoginF> {
                             right: widget.size.width / 2 -
                                 (widget.size.width * 0.7 / 2),
                           ))),
+                      child: const Text(
+                        "تسجيل الدخول",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Text("وزارة التعليم العالي والبحث العلمي"),
-              SizedBox(
+              const Text("وزارة التعليم العالي والبحث العلمي"),
+              const SizedBox(
                 height: 10,
               ),
-              Text("جميع الحقوق محفوظة © 2024"),
+              const Text("جميع الحقوق محفوظة © 2024"),
             ],
           ),
         ),
