@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -58,68 +59,237 @@ class HomeState extends State<Home> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.solidFileText,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "التبرئة الالكترونية",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.tableList,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "الجدول الزمني",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.peopleGroup,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "المجموعة والفوج",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.calendarAlt,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "الجدول الزمني للإمتحانات",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.graduationCap,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "علامات الامتحانات",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.pen,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "التقييم المستمر",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.percent,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "النسبة المئوية للمقاييس",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.solidFolderClosed,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "كشف النقاط",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.calculator,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "الديون",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.solidFile,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "عطلة أكاديمية",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.cashRegister,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "تسجيلاتي",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                                Icons.local_restaurant,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "الإطعام",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.green.withBlue(910),
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.listSquares,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "خدمات أخرى",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   );
