@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:progres/page_home.dart';
+
+import 'home_bottom_navigation_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -149,60 +152,7 @@ class HomeState extends State<Home> {
     print(Theme.of(context).useMaterial3);
     Size size = MediaQuery.of(context).size;
     List<Widget> page = [
-      Padding(
-        padding: const EdgeInsets.only(right: 12.0, left: 12.0),
-        child: Column(
-          children: [
-            ClipRRect(
-              // clipBehavior: Clip.hardEdge,
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(60),
-                  bottomRight: Radius.circular(60)),
-              child: Image.asset(
-                "images/progres1.png",
-                fit: BoxFit.fitWidth,
-                height: size.width > 400 ? 150 : 90,
-                width: size.width,
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Expanded(
-              child: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                print(constraints.maxHeight);
-                return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: size.width < 400 ? 2 : 3,
-                      mainAxisExtent: 65,
-                      mainAxisSpacing: 5,
-                      crossAxisSpacing: 10
-                      // childAspectRatio: 3,
-                      ),
-                  itemCount: elements.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.green.withBlue(910),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: elements[index],
-                          )),
-                    );
-                  },
-                );
-              }),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-          ],
-        ),
-      ),
+      PageHome(size: size, elements: elements),
       const Center(
         child: Text("بطاقاتي"),
       ),
@@ -232,35 +182,11 @@ class HomeState extends State<Home> {
               borderRadius: BorderRadius.all(Radius.circular(10)),
               color: Color(0xff0c3350),
             ),
-            child: BottomNavigationBar(
-                onTap: (id) {
-                  setState(() {
-                    currentIndex = id;
-                  });
-                },
-                currentIndex: currentIndex,
-                type: BottomNavigationBarType.shifting,
-                unselectedItemColor: Colors.grey,
-                fixedColor: Colors.white,
-                showUnselectedLabels: true,
-                selectedLabelStyle:
-                    const TextStyle(fontWeight: FontWeight.bold),
-                selectedFontSize: 20,
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home_filled),
-                    label: "الرئيسية",
-                    backgroundColor: Colors.transparent,
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(FontAwesomeIcons.idCard),
-                    label: "بطاقاتي",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(FontAwesomeIcons.idCard),
-                    label: "حسابي",
-                  )
-                ]),
+            child: HomeBottomNavigationBar(currentIndex: currentIndex, onTap: (index){
+              setState(() {
+                currentIndex=index;
+              });
+            }),
           ),
         ),
         body: page[currentIndex],
@@ -269,3 +195,5 @@ class HomeState extends State<Home> {
     );
   }
 }
+
+
