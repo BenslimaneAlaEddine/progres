@@ -160,8 +160,8 @@ class HomeState extends State<Home> {
                   bottomRight: Radius.circular(60)),
               child: Image.asset(
                 "images/progres1.png",
-                fit: size.width > 400 ? BoxFit.fitWidth : BoxFit.fitHeight,
-                height: size.width > 400 ? 150 : 100,
+                fit: BoxFit.fitWidth,
+                height: size.width > 400 ? 150 : 90,
                 width: size.width,
               ),
             ),
@@ -176,7 +176,7 @@ class HomeState extends State<Home> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: size.width < 400 ? 2 : 3,
                       mainAxisExtent: 65,
-                      mainAxisSpacing: 6,
+                      mainAxisSpacing: 5,
                       crossAxisSpacing: 10
                       // childAspectRatio: 3,
                       ),
@@ -226,11 +226,11 @@ class HomeState extends State<Home> {
         ),
         bottomNavigationBar: Padding(
           padding:
-              const EdgeInsets.only(left: 12.0, right: 12.0,),
+              const EdgeInsets.only(left: 12.0, right: 12.0,bottom: 3),
           child: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              color: Color(0xff0b1b27),
+              color: Color(0xff0c3350),
             ),
             child: BottomNavigationBar(
                 onTap: (id) {
