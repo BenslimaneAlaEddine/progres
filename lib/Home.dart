@@ -25,26 +25,110 @@ class HomeState extends State<Home> {
           // backgroundColor: Colors.green,
         ),
         body: Padding(
-          padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-          child: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            child: Column(
-              children: [
-                ClipRRect(
-                  // clipBehavior: Clip.hardEdge,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(60),
-                      bottomRight: Radius.circular(60)),
-                  child: Image.asset(
-                    "images/progres1.png",
-                    fit: size.width > 400 ? BoxFit.fitWidth : BoxFit.fitHeight,
-                    height: size.width > 400 ? 150 : 100,
-                    width: size.width,
-                  ),
+          padding: const EdgeInsets.only(right: 12.0, left: 12.0),
+          child: Column(
+            children: [
+              ClipRRect(
+                // clipBehavior: Clip.hardEdge,
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(60),
+                    bottomRight: Radius.circular(60)),
+                child: Image.asset(
+                  "images/progres1.png",
+                  fit: size.width > 400 ? BoxFit.fitWidth : BoxFit.fitHeight,
+                  height: size.width > 400 ? 150 : 100,
+                  width: size.width,
                 ),
-                const SizedBox(height: 8,),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Expanded(
+                child: LayoutBuilder(builder:
+                    (BuildContext context, BoxConstraints constraints) {
+                  print(constraints.maxHeight);
+                  return GridView(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: size.width < 400 ? 2 : 3,
+                        mainAxisExtent: 65,
+                        mainAxisSpacing: 6,
+                        crossAxisSpacing: 10
+                        // childAspectRatio: 3,
+                        ),
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                    ],
+                  );
+                }),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+            ],
           ),
         ),
       ),
