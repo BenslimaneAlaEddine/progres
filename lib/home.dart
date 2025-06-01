@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:progres/page_home.dart';
+import 'package:progres/card_page.dart';
+import 'package:progres/home_page.dart';
 
 import 'home_bottom_navigation_bar.dart';
 
@@ -153,9 +154,7 @@ class HomeState extends State<Home> {
     Size size = MediaQuery.of(context).size;
     List<Widget> page = [
       PageHome(size: size, elements: elements),
-      const Center(
-        child: Text("بطاقاتي"),
-      ),
+      FlipCardDemoState(),
       const Center(
         child: Text("حسابي"),
       ),
@@ -164,11 +163,10 @@ class HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          // toolbarHeight: 150,
           title: const Align(
             alignment: Alignment.topLeft,
             child: Text(
-              "بوابة الطالب",
+              "بوابة الطالب",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 25),
             ),
           ),
           actions: const [Icon(Icons.person)],

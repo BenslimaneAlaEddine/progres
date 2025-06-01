@@ -28,10 +28,12 @@ class HomeBottomNavigationBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.idCard),
             label: "بطاقاتي",
+            backgroundColor: Colors.transparent,
           ),
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.idCard),
             label: "حسابي",
+            backgroundColor: Colors.transparent,
           )
         ]);
   }
