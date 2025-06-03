@@ -4,10 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeBottomNavigationBar extends StatelessWidget {
   int currentIndex;
   final ValueChanged<int> onTap;
-
   HomeBottomNavigationBar(
       {super.key, required this.currentIndex, required this.onTap});
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -31,7 +29,7 @@ class HomeBottomNavigationBar extends StatelessWidget {
             backgroundColor: Colors.transparent,
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.idCard),
+            icon: Icon(Icons.account_circle),
             label: "حسابي",
             backgroundColor: Colors.transparent,
           )

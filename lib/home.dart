@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:progres/card_page.dart';
 import 'package:progres/home_page.dart';
+import 'package:progres/test.dart';
+import 'package:progres/test2.dart';
 
 import 'home_bottom_navigation_bar.dart';
 
@@ -147,17 +149,18 @@ class HomeState extends State<Home> {
   ];
 
   int currentIndex = 0;
-
+  double _angle=0;
   @override
   Widget build(BuildContext context) {
     print(Theme.of(context).useMaterial3);
     Size size = MediaQuery.of(context).size;
     List<Widget> page = [
       PageHome(size: size, elements: elements),
-      FlipCardDemoState(),
-      const Center(
-        child: Text("حسابي"),
-      ),
+      FlipCardDemo(),
+      Test2(c:(details){
+    setState(() {
+    _angle += details.delta.dx * 0.01;});}
+      ,a: _angle,),
     ];
 
     return SafeArea(
