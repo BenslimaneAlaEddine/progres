@@ -5,8 +5,6 @@ import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-void main() => runApp(MaterialApp(home: FlipCardDemoState()));
-
 class FlipCardDemoState extends StatelessWidget {
   final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 

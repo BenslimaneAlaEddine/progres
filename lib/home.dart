@@ -149,18 +149,45 @@ class HomeState extends State<Home> {
   ];
 
   int currentIndex = 0;
-  double _angle=0;
+  double _angle = 0;
+  double x = 0.0;
+  double y = 0;
+
   @override
   Widget build(BuildContext context) {
-    print(Theme.of(context).useMaterial3);
     Size size = MediaQuery.of(context).size;
     List<Widget> page = [
       PageHome(size: size, elements: elements),
-      FlipCardDemo(),
-      Test2(c:(details){
-    setState(() {
-    _angle += details.delta.dx * 0.01;});}
-      ,a: _angle,),
+      const FlipCardDemo(),
+      Test2(
+        c: (details) {
+          setState(
+            () {
+              // _angle += details.delta.dx * 0.01;
+              if (x >= size.width / 3) {
+                x = size.width / 3;
+                if (details.delta.dx < 0) x += details.delta.dx;
+              } else {
+                x += details.delta.dx;
+              }
+              if (x <= -size.width / 3) {
+                x = -size.width / 3;
+                if (details.delta.dx > 0) x += details.delta.dx;
+              } else {
+                x += details.delta.dx;
+              }
+              y += details.delta.dy;
+              print("Size ${size.width}");
+              print("delta x ${details.delta.dx}");
+              print("x $x");
+              print("delta y${details.delta.dy}");
+              print("y $y");
+            },
+          );
+        },
+        x: x,
+        y: y,
+      ),
     ];
 
     return SafeArea(
@@ -169,25 +196,27 @@ class HomeState extends State<Home> {
           title: const Align(
             alignment: Alignment.topLeft,
             child: Text(
-              "بوابة الطالب",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 25),
+              "بوابة الطالب",
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
             ),
           ),
           actions: const [Icon(Icons.person)],
           // backgroundColor: Colors.green,
         ),
         bottomNavigationBar: Padding(
-          padding:
-              const EdgeInsets.only(left: 12.0, right: 12.0,bottom: 3),
+          padding: const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 3),
           child: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               color: Color(0xff0c3350),
             ),
-            child: HomeBottomNavigationBar(currentIndex: currentIndex, onTap: (index){
-              setState(() {
-                currentIndex=index;
-              });
-            }),
+            child: HomeBottomNavigationBar(
+                currentIndex: currentIndex,
+                onTap: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                }),
           ),
         ),
         body: page[currentIndex],
@@ -196,5 +225,3 @@ class HomeState extends State<Home> {
     );
   }
 }
-
-

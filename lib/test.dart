@@ -5,6 +5,8 @@ import 'package:progres/test2.dart';
 
 
 class FlipCardDemo extends StatefulWidget {
+  const FlipCardDemo({super.key,});
+
   @override
   _FlipCardDemoState createState() => _FlipCardDemoState();
 }
@@ -22,27 +24,31 @@ class _FlipCardDemoState extends State<FlipCardDemo> {
           onHorizontalDragUpdate: (details) {
             setState(() {
               _angle += details.delta.dx * 0.01;
-print(_angle);
+              print(_angle);
+              // if(_angle>pi || _angle<-pi) _angle=0;
               // قلب الوجه عند الوصول إلى المنتصف تقريبًا
               if (_angle.abs() >= pi / 2 && _angle.abs() < pi) {
                 _isFront = false;
               } else {
                 _isFront = true;
               }
+
               // إعادة الضبط إذا تجاوزنا 360 درجة (2 * pi)
               if (_angle.abs() > 2 * pi) {
+                print("hAaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhani ${2 * pi}");
                 _angle = 0;
               }
             });
           },
           // onHorizontalDragEnd: (details){
           //   print("hhhhhhhhhhhhhhhhhhhhhhhh");
-          //   if (_angle.abs() >= pi / 2 && _angle.abs() < pi) {
-          //     _isFront = false;
-          //     _angle=3;
-          //   } else {
-          //     _isFront = true;
-          //   }
+          //  if(_angle>=1.06 || _angle<=-1.06)
+          //    // _angle=0;
+          //    setState(() {
+          //    print("$_angle eeeeeellllllaaaaaaa haqqqqqqqa maaaaaagllllooooooob");
+          //    _angle=pi;
+          //    print("$_angle");
+          //  });
           // },
           child: Transform(
             alignment: Alignment.center,
