@@ -189,8 +189,8 @@ class HomeState extends State<Home> {
               setState(() {
                 _angle = i;
               });
-              
 
+              print(_angle);
               print(_angle);
             }
             setState(() {
