@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:progres/card_page.dart';
@@ -152,6 +154,7 @@ class HomeState extends State<Home> {
   double _angle = 0;
   double x = 0.0;
   double y = 0;
+  bool isFont = true;
 
   @override
   Widget build(BuildContext context) {
@@ -163,30 +166,68 @@ class HomeState extends State<Home> {
         c: (details) {
           setState(
             () {
-              // _angle += details.delta.dx * 0.01;
-              if (x >= size.width / 3) {
-                x = size.width / 3;
-                if (details.delta.dx < 0) x += details.delta.dx;
+              if (_angle.abs() >= 2 * pi) _angle = 0;
+              // if(details.delta.dx<0) {
+              _angle += -details.delta.dx * 0.01;
+              // } else {
+              //   _angle += details.delta.dx * 0.01;
+              // }
+              print(_angle);
+              // _angle+= details.delta.dy*0.01;
+              if (_angle.abs() >= pi / 2 && _angle.abs() < pi + pi / 2) {
+                isFont = false;
               } else {
-                x += details.delta.dx;
+                isFont = true;
               }
-              if (x <= -size.width / 3) {
-                x = -size.width / 3;
-                if (details.delta.dx > 0) x += details.delta.dx;
-              } else {
-                x += details.delta.dx;
-              }
-              y += details.delta.dy;
-              print("Size ${size.width}");
-              print("delta x ${details.delta.dx}");
-              print("x $x");
-              print("delta y${details.delta.dy}");
-              print("y $y");
             },
           );
         },
-        x: x,
-        y: y,
+        g: (details) async {
+          if (_angle.abs() > 0 && _angle.abs() < pi / 4) {
+            for (double i = _angle.abs(); i > 0; i -= 0.1) {
+              await Future.delayed(const Duration(milliseconds: 10));
+              setState(() {
+                _angle = i;
+              });
+
+              print(_angle);
+            }
+            setState(() {
+              isFont = true;
+            });
+            // _angle = 0;
+            // animateBack();
+          } else if (_angle.abs() > pi / 4 && _angle.abs() < pi) {
+            for (double i = _angle; i < pi; i += 0.1) {
+              await Future.delayed(const Duration(milliseconds: 10));
+              setState(() {
+                _angle = i;
+              });
+              if(_angle.abs() >= pi / 2 && _angle.abs() < pi + pi / 2) {
+                setState(() {
+                isFont = false;
+              });
+              }
+              print(_angle);
+            }
+            _angle = pi;
+          }
+          if (_angle.abs() < pi + pi / 4 && _angle.abs() > pi) {
+            for (double i = _angle; i < pi; i += 0.1) {
+              await Future.delayed(const Duration(milliseconds: 10));
+              setState(() {
+                _angle = pi;
+              });
+              print(_angle);
+            }
+            isFont = false;
+          } else if (_angle.abs() >= pi + pi / 4 && _angle.abs() < pi * 2) {
+            _angle = 0;
+            isFont = true;
+          }
+        },
+        angle: _angle,
+        isFont: isFont,
       ),
     ];
 
@@ -224,4 +265,21 @@ class HomeState extends State<Home> {
       // centerTitle: true,
     );
   }
+
+  void animateBack() async {
+    while (_angle.abs() > 0.01) {
+      await Future.delayed(const Duration(
+          milliseconds:
+              10)); //hna fkol iteration tahbas 10 milliseconds bach tban lharaQa
+      // machi tatnafad b vitess li mathasch bli angle raha tatbadal
+      setState(() {
+        _angle *= 0.9; // تقليل تدريجي
+      });
+    }
+    setState(() {
+      _angle = 0;
+      isFont = true;
+    });
+  }
 }
+
