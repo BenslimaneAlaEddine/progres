@@ -27,7 +27,9 @@ class _FlipCardDemoState extends State<FlipCardDemo> {
               print(_angle);
               // if(_angle>pi || _angle<-pi) _angle=0;
               // قلب الوجه عند الوصول إلى المنتصف تقريبًا
-              if (_angle.abs() >= pi / 2 && _angle.abs() < pi) {
+              if (_angle.abs() >= pi / 2 && _angle.abs() < pi + pi / 2)  //Wrong : s_angle.abs() >= pi / 2 && _angle.abs() < pi
+                // لانه لي راني دايره تعليق كان داير خلل انه في بعض الاحيان الكتابة تنقلب بسبب الخلط هل حقا نحن في الواجهة ام الظهر
+              {
                 _isFront = false;
               } else {
                 _isFront = true;
